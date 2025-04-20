@@ -1,0 +1,60 @@
+#navbar{
+    background-color: orange;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: math;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.tab{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu{
+    background-color: #e1e1e1;
+    width: 21%;
+    padding: 7px;
+    border-radius: 11px;
+}
+
+#Non-Veg-container,#Veg-container,#Bew-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form{
+    display: flex;
+    padding: 16px;
+    gap: 39px
+}
+
+form input ,#option{
+    padding: 10px;
+    width: 32%;
+    border-radius: 7px;
+    border: 1px solid;
+}
+
+#btn{
+    background-color: #82f482;
+    width: 10%;
+}
+
+.hide{
+    display: none;
+}
+
+.delbtn{
+    text-decoration: none;
+    background-color: #f66d6d;
+    color: black;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
+    left: 77%;
+    bottom: 2%;
+}

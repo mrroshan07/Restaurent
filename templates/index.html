@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Category</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <div id="navbar">
+     <a  class="tab" onclick="show('Nonveg')">:Non-Veg</a>
+     <a  class="tab" onclick="show('Vegetarien')">:Vegetarien</a>
+     <a class="tab" onclick="show('Bewarages')">:Bewarages</a>
+    </div>
+   
+    <div id="addform">
+      <form action="/add" method="GET">
+        <input type="text" name="itemname" placeholder="Item Name">
+        <select name="category" id="option">
+            <option>Choose Category</option>
+            <option value="Non Vegetarien">Non Vegetarien</option>
+            <option value="Vegetarien">Vegetarien</option>
+            <option value="Bewarages">Bewarages</option>
+        </select>
+        <input type="number" name="price" placeholder="price">
+        <input type="text" name="dis" placeholder="good food">
+        <input type="file" name="pic" placeholder="choose a image">
+        
+        <input type="submit" id='btn' value="AddItem">
+      </form>
+    </div>
+
+    <div id="Nonveg" class="hide">
+        <h1>nonveg</h1>
+        <div id="Non-Veg-container" >
+            {% for data in items %}
+              {% if data[2] == 'Non Vegetarien' %}
+        <div class="menu">
+            <img src="/static/{{data[5]}}" alt="" style="width: 265px;">
+            <h2>{{data[1]}}</h2>
+            <p>{{data[4]}}</p>
+            <p>®️{{data[3]}}</p>
+            <a href="{{ url_for('delete', id=data[0]) }}" class="delbtn" >Delete</a>
+        </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        
+    </div>  
+
+    <div id="Vegetarien" class="hide">
+        <h1>Vegetarien</h1>
+        <div id="Veg-container" >
+            {% for data in items %}
+            {% if data[2] == 'Vegetarien' %}
+      <div class="menu">
+          <img src="/static/{{data[5]}}" alt="" style="width: 265px;">
+          <h2>{{data[1]}}</h2>
+          <p>{{data[4]}}</p>
+          <p>®️{{data[3]}}</p>
+          <a href="{{ url_for('delete', id=data[0]) }}" class="delbtn">Delete</a>
+      </div>
+          {% endif %}
+      {% endfor %}
+        </div>
+    </div>
+
+    <div id="Bewarages" class="hide">
+        <h1>Bewarages</h1>
+        <div id="Bew-container" >
+            {% for data in items %}
+              {% if data[2] == 'Bewarages' %}
+        <div class="menu">
+            <img src="/static/{{data[5]}}" alt="" style="width: 265px; height: 265px;">
+            <h2>{{data[1]}}</h2>
+            <p>{{data[4]}}</p>
+            <p>®️{{data[3]}}</p>
+            <a href="{{ url_for('delete', id=data[0]) }}" class="delbtn">Delete</a>
+
+        </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+
+        
+
+
+    <script src="/static/index.js"></script>
+</body>
+</html>
